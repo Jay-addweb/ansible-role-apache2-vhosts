@@ -4,7 +4,7 @@
 apache2_proxy_crt:
 apache2_proxy_key: /etc/ssl/private/ssl-cert-snakeoil.key
 apache2_proxy_mode: http
-apache2_proxy_pass: /   http: //localhost: 8080
-apache2_proxy_passreverse: /   http: //localhost: 8080
+apache2_proxy_pass: /   http://localhost:8080
+apache2_proxy_passreverse: /   http://localhost:8080
 apache2_proxy_pem: /etc/ssl/certs/ssl-cert-snakeoil.pem
 apache2_proxy_servername: example.com
