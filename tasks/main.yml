@@ -2,7 +2,7 @@
 # tasks file for apache2_proxy
 
 - name: copy templates
-  tempalte:
+  template:
     src=etc/apache2/sites-available/default.conf.j2
     dest="/etc/apache2/sites-available/{{ apache2_proxy_servername }}.conf"
     owner=root

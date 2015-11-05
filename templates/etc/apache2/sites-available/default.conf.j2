@@ -14,9 +14,11 @@
     SSLProxyEngine          On
     SSLCertificateFile      {{ apache2_proxy_pem }}
     SSLCertificateKeyFile   {{ apache2_proxy_key }}
+{% if apache2_proxy_crt %}
     SSLCertificateChainFile {{ apache2_proxy_crt }}
 {% endif %}
 
+{% endif %}
     <Proxy *>
         Order deny,allow
         Allow from all
