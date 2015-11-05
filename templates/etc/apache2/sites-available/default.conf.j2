@@ -1,0 +1,30 @@
+# This file is managed by Ansible, any changes made by hand will be overritten.
+<VirtualHost *:80>
+    ServerName              {{ apache2_proxy_servername }}
+
+{% if apache2_proxy_mode == "https" %}
+    RewriteEngine           On
+    RewriteCond             %{HTTPS} Off
+    RewriteRule             (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+</VirtualHost>
+<VirtualHost *:443>
+    ServerName              {{ apache2_proxy_servername }}
+
+    SSLEngine               On
+    SSLProxyEngine          On
+    SSLCertificateFile      {{ apache2_proxy_pem }}
+    SSLCertificateKeyFile   {{ apache2_proxy_key }}
+    SSLCertificateChainFile {{ apache2_proxy_crt }}
+{% endif %}
+
+    <Proxy *>
+        Order deny,allow
+        Allow from all
+    </Proxy>
+
+    ProxyRequests           Off
+    ProxyPreserveHost       On
+    ProxyPass               {{ apache2_proxy_pass }}
+    ProxyPassReverse        {{ apache2_proxy_passreverse }}       
+</VirtualHost>
+

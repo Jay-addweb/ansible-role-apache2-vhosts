@@ -1,2 +1,17 @@
 ---
 # tasks file for apache2_proxy
+
+- name: copy templates
+  tempalte:
+    src=etc/apache2/sites-available/default.conf.j2
+    dest="/etc/apache2/sites-available/{{ apache2_proxy_servername }}.conf"
+    owner=root
+    group=root
+    mode=0644
+  notify: restart apache2
+  tags: apache2_proxy
+
+- name: a2ensite
+  shell: a2ensite {{ apache2_proxy_servername }}
+  notify: restart apache2
+  tags: apache2_proxy
