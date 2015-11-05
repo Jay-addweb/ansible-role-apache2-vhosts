@@ -1,2 +1,5 @@
 ---
 # handlers file for apache2_proxy
+
+- name: restart apache2
+  service: name=apache2 state=restarted
