@@ -1,5 +1,5 @@
 Apache2 Proxy
-=======
+=============
 
 [![Build
 Status](https://travis-ci.org/pantarei/ansible-role-apache2-proxy.svg?branch=master)](https://travis-ci.org/pantarei/ansible-role-apache2-proxy)
