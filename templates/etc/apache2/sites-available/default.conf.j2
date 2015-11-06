@@ -2,7 +2,7 @@
 <VirtualHost *:80>
     ServerName              {{ apache2_proxy_servername }}
 
-{% if apache2_proxy_mode == "https" %}
+{% if apache2_proxy_scheme == "https" %}
     RewriteEngine           On
     RewriteCond             %{HTTPS} Off
     RewriteRule             (.*) https://%{HTTP_HOST}%{REQUEST_URI}
