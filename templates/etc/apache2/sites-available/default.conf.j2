@@ -3,15 +3,12 @@
     ServerName              {{ apache2_proxy_servername }}
 
 {% if apache2_proxy_scheme == "https" %}
-    RewriteEngine           On
-    RewriteCond             %{HTTPS} Off
-    RewriteRule             (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+    Redirect                permanent / https://{{ apache2_proxy_servername }}/
 </VirtualHost>
 <VirtualHost *:443>
     ServerName              {{ apache2_proxy_servername }}
 
     SSLEngine               On
-    SSLProxyEngine          On
     SSLCertificateFile      {{ apache2_proxy_pem }}
     SSLCertificateKeyFile   {{ apache2_proxy_key }}
 {% if apache2_proxy_crt %}
@@ -20,8 +17,7 @@
 
 {% endif %}
     <Proxy *>
-        Order deny,allow
-        Allow from all
+        Require all granted
     </Proxy>
 
     ProxyRequests           Off
