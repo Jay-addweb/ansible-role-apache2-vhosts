@@ -12,6 +12,9 @@
   tags: apache2_proxy
 
 - name: a2ensite
-  shell: a2ensite {{ apache2_proxy_servername }}
+  file:
+    path="/etc/apache2/sites-enabled/{{ apache2_proxy_servername }}.conf"
+    src="../sites-available/{{ apache2_proxy_servername }}.conf"
+    state=link
   notify: restart apache2
   tags: apache2_proxy
