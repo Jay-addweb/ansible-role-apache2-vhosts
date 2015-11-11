@@ -4,7 +4,7 @@
 - name: copy templates
   template:
     src=etc/apache2/sites-available/default.conf.j2
-    dest="/etc/apache2/sites-available/{{ apache2_proxy_servername }}.conf"
+    dest="/etc/apache2/sites-available/{{ apache2_proxy_server_name }}.conf"
     owner=root
     group=root
     mode=0644
@@ -13,8 +13,8 @@
 
 - name: a2ensite
   file:
-    path="/etc/apache2/sites-enabled/{{ apache2_proxy_servername }}.conf"
-    src="../sites-available/{{ apache2_proxy_servername }}.conf"
+    path="/etc/apache2/sites-enabled/{{ apache2_proxy_server_name }}.conf"
+    src="../sites-available/{{ apache2_proxy_server_name }}.conf"
     state=link
   notify: restart apache2
   tags: apache2_proxy
