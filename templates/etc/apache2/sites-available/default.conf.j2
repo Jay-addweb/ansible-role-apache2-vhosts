@@ -1,12 +1,12 @@
 # This file is managed by Ansible, any changes made by hand will be overritten.
 <VirtualHost *:80>
-    ServerName              {{ apache2_proxy_servername }}
+    ServerName              {{ apache2_proxy_server_name }}
 
 {% if apache2_proxy_scheme == "https" %}
-    Redirect                permanent / https://{{ apache2_proxy_servername }}/
+    Redirect                permanent / https://{{ apache2_proxy_server_name }}/
 </VirtualHost>
 <VirtualHost *:443>
-    ServerName              {{ apache2_proxy_servername }}
+    ServerName              {{ apache2_proxy_server_name }}
 
     SSLEngine               On
     SSLCertificateFile      {{ apache2_proxy_pem }}
@@ -23,6 +23,5 @@
     ProxyRequests           Off
     ProxyPreserveHost       On
     ProxyPass               {{ apache2_proxy_pass }}
-    ProxyPassReverse        {{ apache2_proxy_passreverse }}       
+    ProxyPassReverse        {{ apache2_proxy_pass_reverse }}
 </VirtualHost>
-
