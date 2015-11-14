@@ -52,25 +52,25 @@ Role Variables
 </tr>
 <tr class="odd">
 <td align="left">apache2_proxy_scheme</td>
-<td align="left">no</td>
+<td align="left">yes</td>
 <td align="left"><ul>
 <li>http</li>
 <li>https</li>
 </ul></td>
-<td align="left"></td>
+<td align="left">http</td>
 <td align="left">Enable proxy in HTTP mode if <code>http</code>, or enable as Enforced-HTTPS modue if <code>https</code>.</td>
 </tr>
 <tr class="even">
 <td align="left">apache2_proxy_pass</td>
 <td align="left">yes</td>
-<td align="left"><code>/   http://localhost:8080/</code></td>
+<td align="left">/ http://localhost:8080/</td>
 <td align="left"></td>
 <td align="left">Pass value as <code>ProxyPass</code> to <a href="https://github.com/pantarei/ansible-role-apache2-proxy/blob/release/1.0.0/templates/etc/apache2/sites-available/default.conf.j2">template</a>.</td>
 </tr>
 <tr class="odd">
 <td align="left">apache2_proxy_pass_reverse</td>
 <td align="left">yes</td>
-<td align="left"><code>/   http://localhost:8080/</code></td>
+<td align="left">/ http://localhost:8080/</td>
 <td align="left"></td>
 <td align="left">Pass value as <code>ProxyPassReverse</code> to <a href="https://github.com/pantarei/ansible-role-apache2-proxy/blob/release/1.0.0/templates/etc/apache2/sites-available/default.conf.j2">template</a>.</td>
 </tr>
