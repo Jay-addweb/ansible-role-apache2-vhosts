@@ -48,7 +48,7 @@ Role Variables
 <td align="left">no</td>
 <td align="left">/etc/ssl/private/ssl-cert-snakeoil.key</td>
 <td align="left"></td>
-<td align="left">Skip if <code>null</code>, or pass value as <code>SSLCertificateKeyFile</code> to <a href="https://github.com/pantarei/ansible-role-apache2-proxy/blob/release/1.0.0/templates/etc/apache2/sites-available/default.conf.j2">template</a>.</td>
+<td align="left">Pass value as <code>SSLCertificateKeyFile</code> to <a href="https://github.com/pantarei/ansible-role-apache2-proxy/blob/release/1.0.0/templates/etc/apache2/sites-available/default.conf.j2">template</a>.</td>
 </tr>
 <tr class="odd">
 <td align="left">apache2_proxy_scheme</td>
@@ -79,7 +79,7 @@ Role Variables
 <td align="left">no</td>
 <td align="left">/etc/ssl/certs/ssl-cert-snakeoil.pem</td>
 <td align="left"></td>
-<td align="left">Skip if <code>null</code>, or pass value as <code>SSLCertificateFile</code> to <a href="https://github.com/pantarei/ansible-role-apache2-proxy/blob/release/1.0.0/templates/etc/apache2/sites-available/default.conf.j2">template</a>.</td>
+<td align="left">Pass value as <code>SSLCertificateFile</code> to <a href="https://github.com/pantarei/ansible-role-apache2-proxy/blob/release/1.0.0/templates/etc/apache2/sites-available/default.conf.j2">template</a>.</td>
 </tr>
 <tr class="odd">
 <td align="left">apache2_proxy_server_name</td>
