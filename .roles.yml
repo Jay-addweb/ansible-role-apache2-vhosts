@@ -1,11 +1,8 @@
 ---
 # roles file for apache2_proxy
 
-- src: https://github.com/pantarei/ansible-role-apt
-  name: apt
+- src: hswong3i.apt
 
-- src: https://github.com/pantarei/ansible-role-apache2
-  name: apache2
+- src: hswong3i.apache2
 
-- src: https://github.com/pantarei/ansible-role-apache2-proxy
-  name: apache2_proxy
+- src: hswong3i.apache2_proxy
