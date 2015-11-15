@@ -1,8 +1,4 @@
 ---
 # roles file for apache2_proxy
 
-- src: hswong3i.apt
-
-- src: hswong3i.apache2
-
 - src: hswong3i.apache2_proxy
