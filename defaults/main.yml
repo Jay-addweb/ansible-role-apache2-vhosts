@@ -1,5 +1,5 @@
 ---
-# defaults file for apache2_proxy
+# defaults file for hswong3i.apache2_proxy
 
 apache2_proxy_crt:
 apache2_proxy_key: /etc/ssl/private/ssl-cert-snakeoil.key
