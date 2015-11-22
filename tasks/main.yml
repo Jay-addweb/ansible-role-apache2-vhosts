@@ -9,7 +9,7 @@
     group=root
     mode=0644
   notify: restart apache2
-  tags: apache2_proxy
+  tags: hswong3i.apache2_proxy
 
 - name: a2ensite
   file:
@@ -17,4 +17,4 @@
     src="../sites-available/{{ apache2_proxy_server_name }}.conf"
     state=link
   notify: restart apache2
-  tags: apache2_proxy
+  tags: hswong3i.apache2_proxy
