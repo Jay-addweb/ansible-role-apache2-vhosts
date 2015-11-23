@@ -2,9 +2,9 @@ Ansible Role for Apache2 Proxy
 ==============================
 
 [![Build Status](https://travis-ci.org/pantarei/ansible-role-apache2-proxy.svg?branch=master)](https://travis-ci.org/pantarei/ansible-role-apache2-proxy)
-[![GitHub tag](https://img.shields.io/github/tag/pantarei/ansible-role-apache2-proxy.svg)](https://github.com/pantarei/ansible-role-apache2-proxy)
-[![GitHub license](https://img.shields.io/github/license/pantarei/ansible-role-apache2-proxy.svg)](https://github.com/pantarei/ansible-role-apache2-proxy/blob/master/LICENSE)
-[![Ansible Role](https://img.shields.io/ansible/role/5974.svg)](https://galaxy.ansible.com/detail#/role/5974)
+ [![GitHub tag](https://img.shields.io/github/tag/pantarei/ansible-role-apache2-proxy.svg)](https://github.com/pantarei/ansible-role-apache2-proxy)
+ [![GitHub license](https://img.shields.io/github/license/pantarei/ansible-role-apache2-proxy.svg)](https://github.com/pantarei/ansible-role-apache2-proxy/blob/master/LICENSE)
+ [![Ansible Role](https://img.shields.io/ansible/role/5974.svg)](https://galaxy.ansible.com/detail#/role/5974)
 
 Ansible Role for Apache2 Proxy Configuration.
 
@@ -101,8 +101,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-        - { role: hswong3i.apache2 }
-        - { role: hswong3i.apache2_proxy }
+        - { role: hswong3i.apache2_proxy, apache2_proxy_server_name: 'example.com' }
 
 License
 -------
