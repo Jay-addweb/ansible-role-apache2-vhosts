@@ -1,4 +1,4 @@
 ---
-# roles file for hswong3i.apache2_proxy
+# roles file for hswong3i.apache2_vhosts
 
-- src: hswong3i.apache2_proxy
+- src: hswong3i.apache2_vhosts

@@ -1,7 +1,7 @@
 ---
-# test file for hswong3i.apache2_proxy
+# test file for hswong3i.apache2_vhosts
 
 - hosts: localhost
   remote_user: root
   roles:
-    - ansible-role-apache2-proxy
+    - ansible-role-apache2-vhosts
