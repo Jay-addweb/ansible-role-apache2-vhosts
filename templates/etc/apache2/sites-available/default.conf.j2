@@ -1,11 +1,11 @@
 # {{ ansible_managed }}
-<VirtualHost *:80>
+<VirtualHost *:{{ apache2_http_port }}>
 {% if apache2_vhosts_ssl_engine %}
     ServerAdmin             {{ apache2_vhosts_server_admin }}
     ServerName              {{ apache2_vhosts_server_name }}
     Redirect                {{ apache2_vhosts_redirect }}
 </VirtualHost>
-<VirtualHost *:443>
+<VirtualHost *:{{ apache2_https_port}}>
     SSLEngine               {{ apache2_vhosts_ssl_engine }}
     SSLCertificateFile      {{ apache2_vhosts_ssl_certificate_file }}
 {%     if apache2_vhosts_ssl_certificate_key_file %}
@@ -29,9 +29,10 @@
         Require all granted
     </Directory>
 {% endif %}
-{% if apache2_vhosts_proxy_pass and apache2_vhosts_proxy_pass_reverse %}
+{% if apache2_vhosts_proxy_pass %}
     ProxyPass               {{ apache2_vhosts_proxy_pass }}
     ProxyPassReverse        {{ apache2_vhosts_proxy_pass_reverse }}
+    ProxyVia                {{ apache2_vhosts_proxy_via }}
 {% endif %}
 {% if apache2_vhosts_proxy_pass_match %}
     ProxyPassMatch          {{ apache2_vhosts_proxy_pass_match }}

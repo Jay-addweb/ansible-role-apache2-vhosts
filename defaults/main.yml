@@ -29,8 +29,10 @@ apache2_vhosts_document_root: '/var/www/html'
 #apache2_vhosts_proxy_pass_reverse: '{{ apache2_vhosts_pass }}'
 #apache2_vhosts_proxy_preserve_host: 'On'
 #apache2_vhosts_proxy_request: 'Off'
+#apache2_vhosts_proxy_via: 'On'
 apache2_vhosts_proxy_pass:
 apache2_vhosts_proxy_pass_match:
 apache2_vhosts_proxy_pass_reverse:
 apache2_vhosts_proxy_preserve_host:
 apache2_vhosts_proxy_request:
+apache2_vhosts_proxy_via:
