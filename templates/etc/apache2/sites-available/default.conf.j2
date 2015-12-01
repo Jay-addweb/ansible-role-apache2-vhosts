@@ -29,14 +29,14 @@
         Require all granted
     </Directory>
 {% endif %}
-{% if apache2_vhosts_proxy_pass && apache2_vhosts_proxy_pass_reverse }}
+{% if apache2_vhosts_proxy_pass and apache2_vhosts_proxy_pass_reverse %}
     ProxyPass               {{ apache2_vhosts_proxy_pass }}
     ProxyPassReverse        {{ apache2_vhosts_proxy_pass_reverse }}
 {% endif %}
-{% if apache2_vhosts_proxy_pass_match }}
+{% if apache2_vhosts_proxy_pass_match %}
     ProxyPassMatch          {{ apache2_vhosts_proxy_pass_match }}
 {% endif %}
-{% if apache2_vhosts_proxy_request and apache2_vhosts_proxy_preserve_host }}
+{% if apache2_vhosts_proxy_request and apache2_vhosts_proxy_preserve_host %}
     ProxyRequests           {{ apache2_vhosts_proxy_request }}
     ProxyPreserveHost       {{ apache2_vhosts_proxy_preserve_host }}
     <Proxy *>

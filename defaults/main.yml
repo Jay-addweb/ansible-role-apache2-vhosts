@@ -4,8 +4,7 @@
 # basic vhosts information
 apache2_vhosts_server_admin: 'webmaster@localhost'
 apache2_vhosts_server_name: localhost
-apache2_vhosts_server_alias:
-  - www.localhost
+apache2_vhosts_server_alias: []
 
 # log related
 apache2_vhosts_error_log: "${APACHE_LOG_DIR}/{{ apache2_vhosts_server_name }}_error.log"
@@ -25,7 +24,7 @@ apache2_vhosts_ssl_engine:
 apache2_vhosts_document_root: '/var/www/html'
 
 # proxy related
-#apache2_vhosts_proxy_pass: '/   http://localhost:8080/'
+#apache2_vhosts_proxy_pass: '/ http://localhost:8080/'
 #apache2_vhosts_proxy_pass_match: "^/(.*\.php(/.*)?)$ fcgi://localhost:9000{{ apache2_vhosts_document_root }}/$1"
 #apache2_vhosts_proxy_pass_reverse: '{{ apache2_vhosts_pass }}'
 #apache2_vhosts_proxy_preserve_host: 'On'
