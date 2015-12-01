@@ -1,27 +1,46 @@
 # {{ ansible_managed }}
 <VirtualHost *:80>
-    ServerName              {{ apache2_proxy_server_name }}
-
-{% if apache2_proxy_scheme == "https" %}
-    Redirect                permanent / https://{{ apache2_proxy_server_name }}/
+{% if apache2_vhosts_ssl_engine %}
+    ServerAdmin             {{ apache2_vhosts_server_admin }}
+    ServerName              {{ apache2_vhosts_server_name }}
+    Redirect                {{ apache2_vhosts_redirect }}
 </VirtualHost>
 <VirtualHost *:443>
-    ServerName              {{ apache2_proxy_server_name }}
-
-    SSLEngine               On
-    SSLCertificateFile      {{ apache2_proxy_pem }}
-    SSLCertificateKeyFile   {{ apache2_proxy_key }}
-{% if apache2_proxy_crt %}
-    SSLCertificateChainFile {{ apache2_proxy_crt }}
+    SSLEngine               {{ apache2_vhosts_ssl_engine }}
+    SSLCertificateFile      {{ apache2_vhosts_ssl_certificate_file }}
+{%     if apache2_vhosts_ssl_certificate_key_file %}
+    SSLCertificateKeyFile   {{ apache2_vhosts_ssl_certificate_key_file }}
+{%     endif %}
+{%     if apache2_vhosts_ssl_certificate_chain_file %}
+    SSLCertificateChainFile {{ apache2_vhosts_ssl_certificate_chain_file }}
+{%     endif %}
 {% endif %}
-
+    ServerAdmin             {{ apache2_vhosts_server_admin }}
+    ServerName              {{ apache2_vhosts_server_name }}
+{% for server_alias in apache2_vhosts_server_alias %}
+    ServerAlias             {{ server_alias }}
+{% endfor %}
+    ErrorLog                {{ apache2_vhosts_error_log }}
+    CustomLog               {{ apache2_vhosts_custom_log }}
+{% if apache2_vhosts_document_root %}
+    DocumentRoot            {{ apache2_vhosts_document_root }}
+    <Directory {{ apache2_vhosts_document_root }}>
+        AllowOverride All
+        Require all granted
+    </Directory>
 {% endif %}
+{% if apache2_vhosts_proxy_pass && apache2_vhosts_proxy_pass_reverse }}
+    ProxyPass               {{ apache2_vhosts_proxy_pass }}
+    ProxyPassReverse        {{ apache2_vhosts_proxy_pass_reverse }}
+{% endif %}
+{% if apache2_vhosts_proxy_pass_match }}
+    ProxyPassMatch          {{ apache2_vhosts_proxy_pass_match }}
+{% endif %}
+{% if apache2_vhosts_proxy_request and apache2_vhosts_proxy_preserve_host }}
+    ProxyRequests           {{ apache2_vhosts_proxy_request }}
+    ProxyPreserveHost       {{ apache2_vhosts_proxy_preserve_host }}
     <Proxy *>
         Require all granted
     </Proxy>
-
-    ProxyRequests           Off
-    ProxyPreserveHost       On
-    ProxyPass               {{ apache2_proxy_pass }}
-    ProxyPassReverse        {{ apache2_proxy_pass_reverse }}
+{% endif %}
 </VirtualHost>
