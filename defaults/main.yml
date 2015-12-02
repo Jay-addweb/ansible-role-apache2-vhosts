@@ -2,7 +2,7 @@
 # defaults file for hswong3i.apache2_vhosts
 
 # basic vhosts information
-apache2_vhosts_server_admin: 'webmaster@localhost'
+apache2_vhosts_server_admin: "webmaster@{{ apache2_vhosts_server_name }}"
 apache2_vhosts_server_name: localhost
 apache2_vhosts_server_alias: []
 
@@ -11,14 +11,12 @@ apache2_vhosts_error_log: "${APACHE_LOG_DIR}/{{ apache2_vhosts_server_name }}_er
 apache2_vhosts_custom_log: "${APACHE_LOG_DIR}/{{ apache2_vhosts_server_name }}_access.log combined"
 
 # ssl related
-#apache2_vhosts_ssl_certificate_file: '/etc/ssl/certs/ssl-cert-snakeoil.pem'
-#apache2_vhosts_ssl_certificate_key_file: '/etc/ssl/private/ssl-cert-snakeoil.key'
 #apache2_vhosts_ssl_engine: 'Off'
-apache2_vhosts_redirect: '/ https://{{ apache2_vhosts_server_name }}'
-apache2_vhosts_ssl_certificate_chain_file:
-apache2_vhosts_ssl_certificate_file:
-apache2_vhosts_ssl_certificate_key_file:
 apache2_vhosts_ssl_engine:
+apache2_vhosts_redirect: "/ https://{{ apache2_vhosts_server_name }}"
+apache2_vhosts_ssl_certificate_chain_file:
+apache2_vhosts_ssl_certificate_file: '/etc/ssl/certs/ssl-cert-snakeoil.pem'
+apache2_vhosts_ssl_certificate_key_file: '/etc/ssl/private/ssl-cert-snakeoil.key'
 
 # document root related
 apache2_vhosts_document_root: '/var/www/html'

@@ -37,56 +37,138 @@ Role Variables
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">apache2_vhosts_crt</td>
-<td align="left">no</td>
-<td align="left"><code>null</code></td>
+<td align="left">apache2_vhosts_server_name</td>
+<td align="left">yes</td>
+<td align="left">localhost</td>
 <td align="left"></td>
-<td align="left">Skip if <code>null</code>, or pass value as <code>SSLCertificateChainFile</code> to <a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/templates/etc/apache2/sites-available/default.conf.j2">template</a>.</td>
+<td align="left">Hostname and port that the server uses to identify itself.</td>
 </tr>
 <tr class="even">
-<td align="left">apache2_vhosts_key</td>
-<td align="left">no</td>
-<td align="left">/etc/ssl/private/ssl-cert-snakeoil.key</td>
+<td align="left">apache2_vhosts_server_admin</td>
+<td align="left">yes</td>
+<td align="left">webmaster@{{ apache2_vhosts_server_name }}</td>
 <td align="left"></td>
-<td align="left">Pass value as <code>SSLCertificateKeyFile</code> to <a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/templates/etc/apache2/sites-available/default.conf.j2">template</a>.</td>
+<td align="left">Email address that the server includes in error messages sent to the client.</td>
 </tr>
 <tr class="odd">
-<td align="left">apache2_vhosts_scheme</td>
-<td align="left">yes</td>
+<td align="left">apache2_vhosts_server_alias</td>
+<td align="left">no</td>
+<td align="left"><code>[]</code></td>
 <td align="left"><ul>
-<li>http</li>
-<li>https</li>
+<li><code>list</code></li>
+<li><code>[]</code></li>
 </ul></td>
-<td align="left">http</td>
-<td align="left">Enable vhosts in HTTP mode if <code>http</code>, or enable as Enforced-HTTPS modue if <code>https</code>.</td>
+<td align="left">Alternate names for a host used when matching requests to name-virtual hosts.</td>
 </tr>
 <tr class="even">
-<td align="left">apache2_vhosts_pass</td>
+<td align="left">apache2_vhosts_error_log</td>
 <td align="left">yes</td>
-<td align="left">/ http://localhost:8080/</td>
+<td align="left">${APACHE_LOG_DIR}/{{ apache2_vhosts_server_name }}_error.log</td>
 <td align="left"></td>
-<td align="left">Pass value as <code>VirtualHostPass</code> to <a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/templates/etc/apache2/sites-available/default.conf.j2">template</a>.</td>
+<td align="left">Location where the server will log errors.</td>
 </tr>
 <tr class="odd">
-<td align="left">apache2_vhosts_pass_reverse</td>
+<td align="left">apache2_vhosts_custom_log</td>
 <td align="left">yes</td>
-<td align="left">/ http://localhost:8080/</td>
+<td align="left">${APACHE_LOG_DIR}/{{ apache2_vhosts_server_name }}_access.log combined</td>
 <td align="left"></td>
-<td align="left">Pass value as <code>VirtualHostPassReverse</code> to <a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/templates/etc/apache2/sites-available/default.conf.j2">template</a>.</td>
+<td align="left">Sets filename and format of log file.</td>
 </tr>
 <tr class="even">
-<td align="left">apache2_vhosts_pem</td>
+<td align="left">apache2_vhosts_ssl_engine</td>
+<td align="left">no</td>
+<td align="left"></td>
+<td align="left"><ul>
+<li><code>On</code></li>
+<li><code>Off</code></li>
+</ul></td>
+<td align="left">SSL Engine Operation Switch.</td>
+</tr>
+<tr class="odd">
+<td align="left">apache2_vhosts_redirect</td>
+<td align="left">no</td>
+<td align="left">/ https://{{ apache2_vhosts_server_name }}</td>
+<td align="left"></td>
+<td align="left">Sends an external redirect asking the client to fetch a different URL.</td>
+</tr>
+<tr class="even">
+<td align="left">apache2_vhosts_ssl_certificate_chain_file</td>
+<td align="left">no</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">File of PEM-encoded Server CA Certificates.</td>
+</tr>
+<tr class="odd">
+<td align="left">apache2_vhosts_ssl_certificate_file</td>
 <td align="left">no</td>
 <td align="left">/etc/ssl/certs/ssl-cert-snakeoil.pem</td>
 <td align="left"></td>
-<td align="left">Pass value as <code>SSLCertificateFile</code> to <a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/templates/etc/apache2/sites-available/default.conf.j2">template</a>.</td>
+<td align="left">Server PEM-encoded X.509 certificate data file.</td>
+</tr>
+<tr class="even">
+<td align="left">apache2_vhosts_ssl_certificate_key_file</td>
+<td align="left">no</td>
+<td align="left">/etc/ssl/private/ssl-cert-snakeoil.key</td>
+<td align="left"></td>
+<td align="left">Server PEM-encoded private key file.</td>
 </tr>
 <tr class="odd">
-<td align="left">apache2_vhosts_server_name</td>
-<td align="left">yes</td>
-<td align="left">example.com</td>
+<td align="left">apache2_vhosts_document_root</td>
+<td align="left">no</td>
+<td align="left">/var/www/html</td>
 <td align="left"></td>
-<td align="left">Pass value as <code>ServerName</code> to <a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/templates/etc/apache2/sites-available/default.conf.j2">template</a>.</td>
+<td align="left">Directory that forms the main document tree visible from the web.</td>
+</tr>
+<tr class="even">
+<td align="left">apache2_vhosts_proxy_pass</td>
+<td align="left">no</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Maps remote servers into the local server URL-space.</td>
+</tr>
+<tr class="odd">
+<td align="left">apache2_vhosts_proxy_pass_match</td>
+<td align="left">no</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Maps remote servers into the local server URL-space using regular expressions.</td>
+</tr>
+<tr class="even">
+<td align="left">apache2_vhosts_proxy_pass_reverse</td>
+<td align="left">no</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Adjusts the URL in HTTP response headers sent from a reverse proxied server.</td>
+</tr>
+<tr class="odd">
+<td align="left">apache2_vhosts_proxy_preserve_host</td>
+<td align="left">yes</td>
+<td align="left"></td>
+<td align="left"><ul>
+<li><code>On</code></li>
+<li><code>Off</code></li>
+</ul></td>
+<td align="left">Use incoming Host HTTP request header for proxy request.</td>
+</tr>
+<tr class="even">
+<td align="left">apache2_vhosts_proxy_request</td>
+<td align="left">no</td>
+<td align="left"></td>
+<td align="left"><ul>
+<li><code>On</code></li>
+<li><code>Off</code></li>
+</ul></td>
+<td align="left">Enables forward (standard) proxy requests.</td>
+</tr>
+<tr class="odd">
+<td align="left">apache2_vhosts_proxy_via</td>
+<td align="left">yes</td>
+<td align="left"></td>
+<td align="left"><ul>
+<li><code>On</code></li>
+<li><code>Off</code></li>
+</ul></td>
+<td align="left">Information provided in the Via HTTP response header for proxied requests.</td>
 </tr>
 </tbody>
 </table>
