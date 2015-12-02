@@ -46,7 +46,7 @@ Role Variables
 <tr class="even">
 <td align="left">apache2_vhosts_server_admin</td>
 <td align="left">yes</td>
-<td align="left">webmaster@{{ apache2_vhosts_server_name }}</td>
+<td><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
 <td align="left"></td>
 <td align="left">Email address that the server includes in error messages sent to the client.</td>
 </tr>
@@ -63,14 +63,14 @@ Role Variables
 <tr class="even">
 <td align="left">apache2_vhosts_error_log</td>
 <td align="left">yes</td>
-<td align="left">${APACHE_LOG_DIR}/{{ apache2_vhosts_server_name }}_error.log</td>
+<td><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
 <td align="left"></td>
 <td align="left">Location where the server will log errors.</td>
 </tr>
 <tr class="odd">
 <td align="left">apache2_vhosts_custom_log</td>
 <td align="left">yes</td>
-<td align="left">${APACHE_LOG_DIR}/{{ apache2_vhosts_server_name }}_access.log combined</td>
+<td><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
 <td align="left"></td>
 <td align="left">Sets filename and format of log file.</td>
 </tr>
@@ -87,7 +87,7 @@ Role Variables
 <tr class="odd">
 <td align="left">apache2_vhosts_redirect</td>
 <td align="left">no</td>
-<td align="left">/ https://{{ apache2_vhosts_server_name }}</td>
+<td><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
 <td align="left"></td>
 <td align="left">Sends an external redirect asking the client to fetch a different URL.</td>
 </tr>
@@ -101,14 +101,14 @@ Role Variables
 <tr class="odd">
 <td align="left">apache2_vhosts_ssl_certificate_file</td>
 <td align="left">no</td>
-<td align="left">/etc/ssl/certs/ssl-cert-snakeoil.pem</td>
+<td><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
 <td align="left"></td>
 <td align="left">Server PEM-encoded X.509 certificate data file.</td>
 </tr>
 <tr class="even">
 <td align="left">apache2_vhosts_ssl_certificate_key_file</td>
 <td align="left">no</td>
-<td align="left">/etc/ssl/private/ssl-cert-snakeoil.key</td>
+<td><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
 <td align="left"></td>
 <td align="left">Server PEM-encoded private key file.</td>
 </tr>
