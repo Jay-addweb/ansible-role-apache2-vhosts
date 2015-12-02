@@ -29,13 +29,17 @@
         Require all granted
     </Directory>
 {% endif %}
-{% if apache2_vhosts_proxy_pass %}
-    ProxyPass               {{ apache2_vhosts_proxy_pass }}
-    ProxyPassReverse        {{ apache2_vhosts_proxy_pass_reverse }}
-    ProxyVia                {{ apache2_vhosts_proxy_via }}
-{% endif %}
 {% if apache2_vhosts_proxy_pass_match %}
     ProxyPassMatch          {{ apache2_vhosts_proxy_pass_match }}
+{% endif %}
+{% if apache2_vhosts_proxy_pass %}
+    ProxyPass               {{ apache2_vhosts_proxy_pass }}
+{% endif %}
+{% if apache2_vhosts_proxy_pass_reverse %}
+    ProxyPassReverse        {{ apache2_vhosts_proxy_pass_reverse }}
+{% endif %}
+{% if apache2_vhosts_proxy_via %}
+    ProxyVia                {{ apache2_vhosts_proxy_via }}
 {% endif %}
 {% if apache2_vhosts_proxy_request and apache2_vhosts_proxy_preserve_host %}
     ProxyRequests           {{ apache2_vhosts_proxy_request }}
