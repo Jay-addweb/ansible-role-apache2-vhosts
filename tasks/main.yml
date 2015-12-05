@@ -18,7 +18,7 @@
     mode={{ item.mode }}
     state={{ item.state }}
   with_items:
-    - { path: "{{ apache2_vhosts_document_root }}", owner: "{{ hswong3i.apache2_vhosts_user }}", group: "{{ hswong3i.apache2_vhosts_user }}", mode: '0755', state: 'directory' }
+    - { path: "{{ apache2_vhosts_document_root }}", owner: "{{ apache2_vhosts_user }}", group: "{{ apache2_vhosts_user }}", mode: '0755', state: 'directory' }
   notify: restart apache2
   tags: hswong3i.apache2_vhosts
 
