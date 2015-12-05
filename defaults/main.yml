@@ -3,7 +3,7 @@
 
 # basic vhosts information
 apache2_vhosts_server_admin: "webmaster@{{ apache2_vhosts_server_name }}"
-apache2_vhosts_server_name: localhost
+apache2_vhosts_server_name: example.com
 apache2_vhosts_server_alias: []
 
 # log related
@@ -19,7 +19,10 @@ apache2_vhosts_ssl_certificate_file: '/etc/ssl/certs/ssl-cert-snakeoil.pem'
 apache2_vhosts_ssl_certificate_key_file: '/etc/ssl/private/ssl-cert-snakeoil.key'
 
 # document root related
-apache2_vhosts_document_root: '/var/www/html'
+apache2_vhosts_user: example
+apache2_vhosts_pass: Maih7eeB
+apache2_vhosts_home: '/home/example'
+apache2_vhosts_document_root: "{{ apache2_vhosts_home }}/public_html"
 
 # proxy related
 #apache2_vhosts_proxy_pass: '/ http://localhost:8080/'
