@@ -27,6 +27,15 @@
         AllowOverride All
         Require all granted
     </Directory>
+    <IfModule mod_fastcgi.c>
+        AddHandler php7.0-fcgi .php
+        Action php7.0-fcgi /php7.0-fcgi
+        Alias /php7.0-fcgi /usr/lib/cgi-bin/{{ apache2_vhosts_user }}-fcgi
+        FastCgiExternalServer /usr/lib/cgi-bin/{{ apache2_vhosts_user }}-fcgi -socket /var/run/php/{{ apache2_vhosts_user }}.sock -pass-header Authorization
+        <Directory /usr/lib/cgi-bin>
+            Require all granted
+        </Directory>
+    </IfModule>
 {% if apache2_vhosts_proxy_pass_match %}
     ProxyPassMatch          {{ apache2_vhosts_proxy_pass_match }}
 {% endif %}
