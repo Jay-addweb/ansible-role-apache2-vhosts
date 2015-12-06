@@ -36,9 +36,6 @@
             Require all granted
         </Directory>
     </IfModule>
-{% if apache2_vhosts_proxy_pass_match %}
-    ProxyPassMatch          {{ apache2_vhosts_proxy_pass_match }}
-{% endif %}
 {% if apache2_vhosts_proxy_pass %}
     ProxyPass               {{ apache2_vhosts_proxy_pass }}
 {% endif %}

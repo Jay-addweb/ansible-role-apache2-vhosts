@@ -148,20 +148,13 @@ Role Variables
 <td align="left">Maps remote servers into the local server URL-space.</td>
 </tr>
 <tr class="even">
-<td align="left">apache2_vhosts_proxy_pass_match</td>
-<td align="left">no</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Maps remote servers into the local server URL-space using regular expressions.</td>
-</tr>
-<tr class="odd">
 <td align="left">apache2_vhosts_proxy_pass_reverse</td>
 <td align="left">no</td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">Adjusts the URL in HTTP response headers sent from a reverse proxied server.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">apache2_vhosts_proxy_preserve_host</td>
 <td align="left">yes</td>
 <td align="left"></td>
@@ -171,7 +164,7 @@ Role Variables
 </ul></td>
 <td align="left">Use incoming Host HTTP request header for proxy request.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">apache2_vhosts_proxy_request</td>
 <td align="left">no</td>
 <td align="left"></td>
@@ -181,7 +174,7 @@ Role Variables
 </ul></td>
 <td align="left">Enables forward (standard) proxy requests.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">apache2_vhosts_proxy_via</td>
 <td align="left">yes</td>
 <td align="left"></td>
