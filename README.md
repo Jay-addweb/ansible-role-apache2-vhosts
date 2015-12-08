@@ -190,7 +190,7 @@ Role Variables
 Dependencies
 ------------
 
--   [hswong3i.apache2](https://galaxy.ansible.com/detail#/role/5972)
+-   [hswong3i.apache2](https://github.com/pantarei/ansible-role-apache2)
 
 Example Playbook
 ----------------
