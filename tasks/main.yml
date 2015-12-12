@@ -4,7 +4,7 @@
 - name: create user
   user:
     name={{ apache2_vhosts_user }}
-    password={{ apache2_vhosts_pass }}
+    password={{ apache2_vhosts_pass | password_hash('sha512') }}
     home={{ apache2_vhosts_home }}
     shell=/bin/bash
   notify: restart apache2
