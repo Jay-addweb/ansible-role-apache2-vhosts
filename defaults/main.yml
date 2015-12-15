@@ -24,7 +24,7 @@ apache2_vhosts_ssl_certificate_key_file: '/etc/ssl/private/ssl-cert-snakeoil.key
 apache2_vhosts_user: example
 apache2_vhosts_pass: Maih7eeB
 apache2_vhosts_hash_salt: d29e09ffbe461d355128208a720712a60b0ef2a54a89c282f4fb4b9e6b626ffa
-apache2_vhosts_home: "/home/example"
+apache2_vhosts_home: '/home/example'
 apache2_vhosts_document_root: "{{ apache2_vhosts_home }}/public_html"
 
 # proxy related

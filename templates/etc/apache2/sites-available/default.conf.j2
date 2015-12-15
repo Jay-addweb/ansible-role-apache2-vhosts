@@ -22,7 +22,7 @@
 {% endfor %}
     ErrorLog                {{ apache2_vhosts_error_log }}
     CustomLog               {{ apache2_vhosts_custom_log }}
-{% if apache2_vhosts_document_root %}
+{% if apache2_vhosts_user %}
     DocumentRoot            {{ apache2_vhosts_document_root }}
     <Directory {{ apache2_vhosts_document_root }}>
         AllowOverride All
