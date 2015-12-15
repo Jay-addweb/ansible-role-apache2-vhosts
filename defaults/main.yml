@@ -22,7 +22,7 @@ apache2_vhosts_ssl_certificate_key_file: '/etc/ssl/private/ssl-cert-snakeoil.key
 
 # document root related
 apache2_vhosts_user: example
-apache2_vhosts_pass: Maih7eeB
+apache2_vhosts_pass: "{{ 'Maih7eeB' | password_hash('sha512', 'Maih7eeB') }}"
 apache2_vhosts_home: '/home/example'
 apache2_vhosts_document_root: "{{ apache2_vhosts_home }}/public_html"
 
