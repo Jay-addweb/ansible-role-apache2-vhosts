@@ -7,7 +7,7 @@
     password={{ apache2_vhosts_pass | password_hash('sha512', apache2_vhosts_hash_salt) }}
     home={{ apache2_vhosts_home }}
     shell=/bin/bash
-  when: apache2_vhosts_user
+  when: apache2_vhosts_document_root is defined
   notify: restart apache2
   tags: hswong3i.apache2_vhosts
 
@@ -20,7 +20,7 @@
     state={{ item.state }}
   with_items:
     - { path: "{{ apache2_vhosts_document_root }}", owner: "{{ apache2_vhosts_user }}", group: "{{ apache2_vhosts_user }}", mode: '0755', state: 'directory' }
-  when: apache2_vhosts_user
+  when: apache2_vhosts_document_root is defined
   notify: restart apache2
   tags: hswong3i.apache2_vhosts
 
