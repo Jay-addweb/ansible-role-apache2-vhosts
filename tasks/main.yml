@@ -4,7 +4,7 @@
 - name: create user
   user:
     name={{ apache2_vhosts_user }}
-    password={{ apache2_vhosts_pass | password_hash('sha512') }}
+    password={{ apache2_vhosts_pass }}
     home={{ apache2_vhosts_home }}
     shell=/bin/bash
   when: apache2_vhosts_document_root
