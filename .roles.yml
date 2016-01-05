@@ -1,4 +1,5 @@
 ---
 # roles file for hswong3i.apache2_vhosts
 
+- src: hswong3i.apache2
 - src: hswong3i.apache2_vhosts

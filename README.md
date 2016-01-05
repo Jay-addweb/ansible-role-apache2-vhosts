@@ -197,7 +197,7 @@ Role Variables
 Dependencies
 ------------
 
--   [hswong3i.apache2](https://github.com/pantarei/ansible-role-apache2)
+No additional role dependencies.
 
 Example Playbook
 ----------------
