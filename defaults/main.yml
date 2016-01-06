@@ -2,6 +2,8 @@
 # defaults file for hswong3i.apache2_vhosts
 
 # basic vhosts information
+apache2_vhosts_http_port: 80
+apache2_vhosts_https_port: 443
 apache2_vhosts_server_admin: "webmaster@{{ apache2_vhosts_server_name }}"
 apache2_vhosts_server_name: example.com
 apache2_vhosts_server_alias: [
@@ -13,7 +15,6 @@ apache2_vhosts_error_log: "${APACHE_LOG_DIR}/{{ apache2_vhosts_server_name }}_er
 apache2_vhosts_custom_log: "${APACHE_LOG_DIR}/{{ apache2_vhosts_server_name }}_access.log combined"
 
 # ssl related
-#apache2_vhosts_ssl_engine: 'Off'
 apache2_vhosts_ssl_engine: ~
 apache2_vhosts_redirect: "/ https://{{ apache2_vhosts_server_name }}"
 apache2_vhosts_ssl_certificate_chain_file: ~
@@ -28,11 +29,6 @@ apache2_vhosts_home: '/home/example'
 apache2_vhosts_document_root: "{{ apache2_vhosts_home }}/public_html"
 
 # proxy related
-#apache2_vhosts_proxy_pass: '/ http://localhost:8080/'
-#apache2_vhosts_proxy_pass_reverse: '{{ apache2_vhosts_pass }}'
-#apache2_vhosts_proxy_preserve_host: 'On'
-#apache2_vhosts_proxy_request: 'Off'
-#apache2_vhosts_proxy_via: 'On'
 apache2_vhosts_proxy_pass: ~
 apache2_vhosts_proxy_pass_reverse: ~
 apache2_vhosts_proxy_preserve_host: ~

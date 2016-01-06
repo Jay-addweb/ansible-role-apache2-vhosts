@@ -1,11 +1,11 @@
 # {{ ansible_managed }}
-<VirtualHost *:{{ apache2_http_port }}>
+<VirtualHost *:{{ apache2_vhosts_http_port }}>
 {% if apache2_vhosts_ssl_engine %}
     ServerAdmin             {{ apache2_vhosts_server_admin }}
     ServerName              {{ apache2_vhosts_server_name }}
     Redirect                {{ apache2_vhosts_redirect }}
 </VirtualHost>
-<VirtualHost *:{{ apache2_https_port}}>
+<VirtualHost *:{{ apache2_vhosts_https_port}}>
     SSLEngine               {{ apache2_vhosts_ssl_engine }}
     SSLCertificateFile      {{ apache2_vhosts_ssl_certificate_file }}
 {%     if apache2_vhosts_ssl_certificate_key_file %}

@@ -37,6 +37,20 @@ Role Variables
 </thead>
 <tbody>
 <tr class="odd">
+<td align="left">apache2_vhosts_http_port</td>
+<td align="left">yes</td>
+<td align="left">80</td>
+<td align="left"></td>
+<td align="left">Apache2 VirtualHost HTTP port.</td>
+</tr>
+<tr class="even">
+<td align="left">apache2_vhosts_https_port</td>
+<td align="left">yes</td>
+<td align="left">443</td>
+<td align="left"></td>
+<td align="left">Apache2 VirtualHost HTTPS port.</td>
+</tr>
+<tr class="odd">
 <td align="left">apache2_vhosts_server_name</td>
 <td align="left">yes</td>
 <td align="left">example.com</td>
