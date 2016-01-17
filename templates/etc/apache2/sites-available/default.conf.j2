@@ -24,19 +24,14 @@
     CustomLog               {{ apache2_vhosts_custom_log }}
 {% if apache2_vhosts_document_root is string %}
     DocumentRoot            {{ apache2_vhosts_document_root }}
+    SetEnvIfNoCase          ^Authorization$ "(.+)" HTTP_AUTHORIZATION=$1
     <Directory {{ apache2_vhosts_document_root }}>
         AllowOverride All
         Require all granted
     </Directory>
-    <IfModule mod_fastcgi.c>
-        AddHandler php7.0-fcgi .php
-        Action php7.0-fcgi /php7.0-fcgi
-        Alias /php7.0-fcgi /usr/lib/cgi-bin/{{ apache2_vhosts_user }}-fcgi
-        FastCgiExternalServer /usr/lib/cgi-bin/{{ apache2_vhosts_user }}-fcgi -socket /var/run/php/{{ apache2_vhosts_user }}.sock -pass-header Authorization
-        <Directory /usr/lib/cgi-bin>
-            Require all granted
-        </Directory>
-    </IfModule>
+    <FilesMatch \.php$>
+        SetHandler          proxy:unix:/var/run/php/{{ apache2_vhosts_id }}.sock|fcgi://localhost
+    </FilesMatch>
 {% endif %}
 {% if apache2_vhosts_proxy_pass %}
     ProxyPass               {{ apache2_vhosts_proxy_pass }}
