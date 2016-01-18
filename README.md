@@ -91,7 +91,7 @@ Role Variables
 <tr class="even">
 <td align="left">apache2_vhosts_pass</td>
 <td align="left">yes</td>
-<td align="left">Maih7eeB</td>
+<td align="left">xaivoo9Z</td>
 <td align="left"></td>
 <td align="left">Password for virtual host user.</td>
 </tr>
