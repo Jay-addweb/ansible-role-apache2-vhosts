@@ -13,8 +13,8 @@ apache2_vhosts_server_alias: [
 # document root related
 apache2_vhosts_id: example
 apache2_vhosts_user: example
-apache2_vhosts_pass: Maih7eeB
-apache2_vhosts_hash_salt: d29e09ffbe461d355128208a720712a60b0ef2a54a89c282f4fb4b9e6b626ffa
+apache2_vhosts_pass: xaivoo9Z
+apache2_vhosts_hash_salt: wi6Eereiwae7phae
 apache2_vhosts_home: '/home/example'
 apache2_vhosts_document_root: "{{ apache2_vhosts_home }}/public_html"
 
