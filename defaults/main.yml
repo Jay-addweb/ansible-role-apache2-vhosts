@@ -10,6 +10,14 @@ apache2_vhosts_server_alias: [
   'www.example.com',
 ]
 
+# document root related
+apache2_vhosts_id: example
+apache2_vhosts_user: example
+apache2_vhosts_pass: Maih7eeB
+apache2_vhosts_hash_salt: d29e09ffbe461d355128208a720712a60b0ef2a54a89c282f4fb4b9e6b626ffa
+apache2_vhosts_home: '/home/example'
+apache2_vhosts_document_root: "{{ apache2_vhosts_home }}/public_html"
+
 # log related
 apache2_vhosts_error_log: "${APACHE_LOG_DIR}/{{ apache2_vhosts_server_name }}_error.log"
 apache2_vhosts_custom_log: "${APACHE_LOG_DIR}/{{ apache2_vhosts_server_name }}_access.log combined"
@@ -20,13 +28,6 @@ apache2_vhosts_redirect: "/ https://{{ apache2_vhosts_server_name }}"
 apache2_vhosts_ssl_certificate_chain_file: ~
 apache2_vhosts_ssl_certificate_file: '/etc/ssl/certs/ssl-cert-snakeoil.pem'
 apache2_vhosts_ssl_certificate_key_file: '/etc/ssl/private/ssl-cert-snakeoil.key'
-
-# document root related
-apache2_vhosts_user: example
-apache2_vhosts_pass: Maih7eeB
-apache2_vhosts_hash_salt: d29e09ffbe461d355128208a720712a60b0ef2a54a89c282f4fb4b9e6b626ffa
-apache2_vhosts_home: '/home/example'
-apache2_vhosts_document_root: "{{ apache2_vhosts_home }}/public_html"
 
 # proxy related
 apache2_vhosts_proxy_pass: ~
