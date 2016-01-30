@@ -35,3 +35,6 @@ apache2_vhosts_proxy_pass_reverse: ~
 apache2_vhosts_proxy_preserve_host: ~
 apache2_vhosts_proxy_request: ~
 apache2_vhosts_proxy_via: ~
+
+# file handler related
+apache2_vhosts_handler_php: ~
