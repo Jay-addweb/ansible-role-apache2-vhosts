@@ -29,8 +29,10 @@
         AllowOverride All
         Require all granted
     </Directory>
+{% endif %}
+{% if apache2_vhosts_handler_php is string %}
     <FilesMatch \.php$>
-        SetHandler          proxy:unix:/var/run/php/{{ apache2_vhosts_id }}.sock|fcgi://localhost
+        SetHandler          {{ apache2_vhosts_handler_php }}
     </FilesMatch>
 {% endif %}
 {% if apache2_vhosts_proxy_pass %}

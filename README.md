@@ -212,6 +212,13 @@ Role Variables
 </ul></td>
 <td align="left">Information provided in the Via HTTP response header for proxied requests.</td>
 </tr>
+<tr class="even">
+<td align="left">apache2_vhosts_handler_php</td>
+<td align="left">yes</td>
+<td align="left"><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
+<td align="left"></td>
+<td align="left">Forces all matching files with <code>\.php$</code> to be processed by a handler.</td>
+</tr>
 </tbody>
 </table>
 
