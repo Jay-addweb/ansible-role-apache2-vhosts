@@ -17,6 +17,8 @@ apache2_vhosts_pass: xaivoo9Z
 apache2_vhosts_hash_salt: wi6Eereiwae7phae
 apache2_vhosts_home: '/home/example'
 apache2_vhosts_document_root: "{{ apache2_vhosts_home }}/public_html"
+apache2_vhosts_uid: ~
+apache2_vhosts_gid: ~
 
 # log related
 apache2_vhosts_error_log: "${APACHE_LOG_DIR}/{{ apache2_vhosts_server_name }}_error.log"
