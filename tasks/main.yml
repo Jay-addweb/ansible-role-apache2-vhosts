@@ -3,9 +3,9 @@
 
 - name: create user
   user:
-    name={{ apache2_vhosts_user }}
-    password={{ apache2_vhosts_pass | password_hash('sha512', apache2_vhosts_hash_salt) }}
-    home={{ apache2_vhosts_home }}
+    name="{{ apache2_vhosts_user }}"
+    password="{{ apache2_vhosts_pass | password_hash('sha512', apache2_vhosts_hash_salt) }}"
+    home="{{ apache2_vhosts_home }}"
     shell=/bin/bash
   when: apache2_vhosts_document_root is string
   notify: restart apache2
@@ -13,11 +13,11 @@
 
 - name: prepare file
   file:
-    path={{ item.path }}
-    owner={{ item.owner }}
-    group={{ item.group }}
-    mode={{ item.mode }}
-    state={{ item.state }}
+    path="{{ item.path }}"
+    owner="{{ item.owner }}"
+    group="{{ item.group }}"
+    mode="{{ item.mode }}"
+    state="{{ item.state }}"
   with_items:
     - { path: "{{ apache2_vhosts_document_root }}", owner: "{{ apache2_vhosts_user }}", group: "{{ apache2_vhosts_user }}", mode: '0755', state: 'directory' }
   when: apache2_vhosts_document_root is string
@@ -26,11 +26,11 @@
 
 - name: copy templates
   template:
-    src={{ item.src }}
-    dest={{ item.dest }}
-    owner={{ item.owner }}
-    group={{ item.group }}
-    mode={{ item.mode }}
+    src="{{ item.src }}"
+    dest="{{ item.dest }}"
+    owner="{{ item.owner }}"
+    group="{{ item.group }}"
+    mode="{{ item.mode }}"
   with_items:
     - { src: 'etc/apache2/sites-available/default.conf.j2', dest: "/etc/apache2/sites-available/{{ apache2_vhosts_server_name }}.conf", owner: 'root', group: 'root', mode: '0644' }
   notify: restart apache2
