@@ -7,7 +7,7 @@ apache2_vhosts_https_port: 443
 apache2_vhosts_server_admin: "webmaster@{{ apache2_vhosts_server_name }}"
 apache2_vhosts_server_name: example.com
 apache2_vhosts_server_alias: [
-  'www.example.com',
+  "www.example.com",
 ]
 
 # document root related
@@ -15,7 +15,9 @@ apache2_vhosts_id: example
 apache2_vhosts_user: example
 apache2_vhosts_pass: xaivoo9Z
 apache2_vhosts_hash_salt: wi6Eereiwae7phae
-apache2_vhosts_home: '/home/example'
+apache2_vhosts_home: "/home/example"
+apache2_vhosts_uid: ~
+apache2_vhosts_gid: ~
 apache2_vhosts_document_root: "{{ apache2_vhosts_home }}/public_html"
 
 # log related
@@ -26,8 +28,8 @@ apache2_vhosts_custom_log: "${APACHE_LOG_DIR}/{{ apache2_vhosts_server_name }}_a
 apache2_vhosts_ssl_engine: ~
 apache2_vhosts_redirect: "/ https://{{ apache2_vhosts_server_name }}"
 apache2_vhosts_ssl_certificate_chain_file: ~
-apache2_vhosts_ssl_certificate_file: '/etc/ssl/certs/ssl-cert-snakeoil.pem'
-apache2_vhosts_ssl_certificate_key_file: '/etc/ssl/private/ssl-cert-snakeoil.key'
+apache2_vhosts_ssl_certificate_file: "/etc/ssl/certs/ssl-cert-snakeoil.pem"
+apache2_vhosts_ssl_certificate_key_file: "/etc/ssl/private/ssl-cert-snakeoil.key"
 
 # proxy related
 apache2_vhosts_proxy_pass: ~
