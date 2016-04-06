@@ -28,196 +28,210 @@ Role Variables
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">parameter</th>
-<th align="left">required</th>
-<th align="left">default</th>
-<th align="left">choices</th>
-<th align="left">comments</th>
+<th>parameter</th>
+<th>required</th>
+<th>default</th>
+<th>choices</th>
+<th>comments</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">apache2_vhosts_http_port</td>
-<td align="left">yes</td>
-<td align="left">80</td>
-<td align="left"></td>
-<td align="left">Apache2 VirtualHost HTTP port.</td>
+<td>apache2_vhosts_http_port</td>
+<td>yes</td>
+<td>80</td>
+<td></td>
+<td>Apache2 VirtualHost HTTP port.</td>
 </tr>
 <tr class="even">
-<td align="left">apache2_vhosts_https_port</td>
-<td align="left">yes</td>
-<td align="left">443</td>
-<td align="left"></td>
-<td align="left">Apache2 VirtualHost HTTPS port.</td>
+<td>apache2_vhosts_https_port</td>
+<td>yes</td>
+<td>443</td>
+<td></td>
+<td>Apache2 VirtualHost HTTPS port.</td>
 </tr>
 <tr class="odd">
-<td align="left">apache2_vhosts_server_name</td>
-<td align="left">yes</td>
-<td align="left">example.com</td>
-<td align="left"></td>
-<td align="left">Hostname and port that the server uses to identify itself.</td>
+<td>apache2_vhosts_server_name</td>
+<td>yes</td>
+<td>example.com</td>
+<td></td>
+<td>Hostname and port that the server uses to identify itself.</td>
 </tr>
 <tr class="even">
-<td align="left">apache2_vhosts_server_admin</td>
-<td align="left">yes</td>
-<td align="left"><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
-<td align="left"></td>
-<td align="left">Email address that the server includes in error messages sent to the client.</td>
+<td>apache2_vhosts_server_admin</td>
+<td>yes</td>
+<td><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
+<td></td>
+<td>Email address that the server includes in error messages sent to the client.</td>
 </tr>
 <tr class="odd">
-<td align="left">apache2_vhosts_server_alias</td>
-<td align="left">no</td>
-<td align="left"><code>[]</code></td>
-<td align="left"><ul>
+<td>apache2_vhosts_server_alias</td>
+<td>no</td>
+<td><code>[]</code></td>
+<td><ul>
 <li><code>list</code></li>
 <li><code>[]</code></li>
 </ul></td>
-<td align="left">Alternate names for a host used when matching requests to name-virtual hosts.</td>
+<td>Alternate names for a host used when matching requests to name-virtual hosts.</td>
 </tr>
 <tr class="even">
-<td align="left">apache2_vhosts_id</td>
-<td align="left">yes</td>
-<td align="left">example</td>
-<td align="left"></td>
-<td align="left">Unique ID for virtual host shared among other services.</td>
+<td>apache2_vhosts_id</td>
+<td>yes</td>
+<td>example</td>
+<td></td>
+<td>Unique ID for virtual host shared among other services.</td>
 </tr>
 <tr class="odd">
-<td align="left">apache2_vhosts_user</td>
-<td align="left">yes</td>
-<td align="left">example</td>
-<td align="left"></td>
-<td align="left">Username for virtual host user.</td>
+<td>apache2_vhosts_user</td>
+<td>yes</td>
+<td>example</td>
+<td></td>
+<td>Username for virtual host user.</td>
 </tr>
 <tr class="even">
-<td align="left">apache2_vhosts_pass</td>
-<td align="left">yes</td>
-<td align="left">xaivoo9Z</td>
-<td align="left"></td>
-<td align="left">Password for virtual host user.</td>
+<td>apache2_vhosts_pass</td>
+<td>yes</td>
+<td>xaivoo9Z</td>
+<td></td>
+<td>Password for virtual host user.</td>
 </tr>
 <tr class="odd">
-<td align="left">apache2_vhosts_hash_salt</td>
-<td align="left">yes</td>
-<td align="left"><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
-<td align="left"></td>
-<td align="left">Specific password hash salt for sha512.</td>
+<td>apache2_vhosts_hash_salt</td>
+<td>yes</td>
+<td><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
+<td></td>
+<td>Specific password hash salt for sha512.</td>
 </tr>
 <tr class="even">
-<td align="left">apache2_vhosts_home</td>
-<td align="left">yes</td>
-<td align="left">/home/example</td>
-<td align="left"></td>
-<td align="left">Location for the virtual host user home directory.</td>
+<td>apache2_vhosts_home</td>
+<td>yes</td>
+<td>/home/example</td>
+<td></td>
+<td>Location for the virtual host user home directory.</td>
 </tr>
 <tr class="odd">
-<td align="left">apache2_vhosts_document_root</td>
-<td align="left">yes</td>
-<td align="left"><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
-<td align="left"></td>
-<td align="left">Directory that forms the main document tree visible from the web.</td>
+<td>apache2_vhosts_uid</td>
+<td>no</td>
+<td></td>
+<td></td>
+<td>Specifying the UID for shared storage. NOTE: This value should only be set once before deploying and then never changed.</td>
 </tr>
 <tr class="even">
-<td align="left">apache2_vhosts_error_log</td>
-<td align="left">yes</td>
-<td align="left"><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
-<td align="left"></td>
-<td align="left">Location where the server will log errors.</td>
+<td>apache2_vhosts_gid</td>
+<td>no</td>
+<td></td>
+<td></td>
+<td>Specifying the GID for shared storage. NOTE: This value should only be set once before deploying and then never changed.</td>
 </tr>
 <tr class="odd">
-<td align="left">apache2_vhosts_custom_log</td>
-<td align="left">yes</td>
-<td align="left"><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
-<td align="left"></td>
-<td align="left">Sets filename and format of log file.</td>
+<td>apache2_vhosts_document_root</td>
+<td>yes</td>
+<td><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
+<td></td>
+<td>Directory that forms the main document tree visible from the web.</td>
 </tr>
 <tr class="even">
-<td align="left">apache2_vhosts_ssl_engine</td>
-<td align="left">no</td>
-<td align="left"></td>
-<td align="left"><ul>
+<td>apache2_vhosts_error_log</td>
+<td>yes</td>
+<td><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
+<td></td>
+<td>Location where the server will log errors.</td>
+</tr>
+<tr class="odd">
+<td>apache2_vhosts_custom_log</td>
+<td>yes</td>
+<td><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
+<td></td>
+<td>Sets filename and format of log file.</td>
+</tr>
+<tr class="even">
+<td>apache2_vhosts_ssl_engine</td>
+<td>no</td>
+<td></td>
+<td><ul>
 <li><code>On</code></li>
 <li><code>Off</code></li>
 </ul></td>
-<td align="left">SSL Engine Operation Switch.</td>
+<td>SSL Engine Operation Switch.</td>
 </tr>
 <tr class="odd">
-<td align="left">apache2_vhosts_redirect</td>
-<td align="left">no</td>
-<td align="left"><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
-<td align="left"></td>
-<td align="left">Sends an external redirect asking the client to fetch a different URL.</td>
+<td>apache2_vhosts_redirect</td>
+<td>no</td>
+<td><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
+<td></td>
+<td>Sends an external redirect asking the client to fetch a different URL.</td>
 </tr>
 <tr class="even">
-<td align="left">apache2_vhosts_ssl_certificate_chain_file</td>
-<td align="left">no</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">File of PEM-encoded Server CA Certificates.</td>
+<td>apache2_vhosts_ssl_certificate_chain_file</td>
+<td>no</td>
+<td></td>
+<td></td>
+<td>File of PEM-encoded Server CA Certificates.</td>
 </tr>
 <tr class="odd">
-<td align="left">apache2_vhosts_ssl_certificate_file</td>
-<td align="left">no</td>
-<td align="left"><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
-<td align="left"></td>
-<td align="left">Server PEM-encoded X.509 certificate data file.</td>
+<td>apache2_vhosts_ssl_certificate_file</td>
+<td>no</td>
+<td><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
+<td></td>
+<td>Server PEM-encoded X.509 certificate data file.</td>
 </tr>
 <tr class="even">
-<td align="left">apache2_vhosts_ssl_certificate_key_file</td>
-<td align="left">no</td>
-<td align="left"><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
-<td align="left"></td>
-<td align="left">Server PEM-encoded private key file.</td>
+<td>apache2_vhosts_ssl_certificate_key_file</td>
+<td>no</td>
+<td><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
+<td></td>
+<td>Server PEM-encoded private key file.</td>
 </tr>
 <tr class="odd">
-<td align="left">apache2_vhosts_proxy_pass</td>
-<td align="left">no</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Maps remote servers into the local server URL-space.</td>
+<td>apache2_vhosts_proxy_pass</td>
+<td>no</td>
+<td></td>
+<td></td>
+<td>Maps remote servers into the local server URL-space.</td>
 </tr>
 <tr class="even">
-<td align="left">apache2_vhosts_proxy_pass_reverse</td>
-<td align="left">no</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Adjusts the URL in HTTP response headers sent from a reverse proxied server.</td>
+<td>apache2_vhosts_proxy_pass_reverse</td>
+<td>no</td>
+<td></td>
+<td></td>
+<td>Adjusts the URL in HTTP response headers sent from a reverse proxied server.</td>
 </tr>
 <tr class="odd">
-<td align="left">apache2_vhosts_proxy_preserve_host</td>
-<td align="left">yes</td>
-<td align="left"></td>
-<td align="left"><ul>
+<td>apache2_vhosts_proxy_preserve_host</td>
+<td>yes</td>
+<td></td>
+<td><ul>
 <li><code>On</code></li>
 <li><code>Off</code></li>
 </ul></td>
-<td align="left">Use incoming Host HTTP request header for proxy request.</td>
+<td>Use incoming Host HTTP request header for proxy request.</td>
 </tr>
 <tr class="even">
-<td align="left">apache2_vhosts_proxy_request</td>
-<td align="left">no</td>
-<td align="left"></td>
-<td align="left"><ul>
+<td>apache2_vhosts_proxy_request</td>
+<td>no</td>
+<td></td>
+<td><ul>
 <li><code>On</code></li>
 <li><code>Off</code></li>
 </ul></td>
-<td align="left">Enables forward (standard) proxy requests.</td>
+<td>Enables forward (standard) proxy requests.</td>
 </tr>
 <tr class="odd">
-<td align="left">apache2_vhosts_proxy_via</td>
-<td align="left">yes</td>
-<td align="left"></td>
-<td align="left"><ul>
+<td>apache2_vhosts_proxy_via</td>
+<td>yes</td>
+<td></td>
+<td><ul>
 <li><code>On</code></li>
 <li><code>Off</code></li>
 </ul></td>
-<td align="left">Information provided in the Via HTTP response header for proxied requests.</td>
+<td>Information provided in the Via HTTP response header for proxied requests.</td>
 </tr>
 <tr class="even">
-<td align="left">apache2_vhosts_handler_php</td>
-<td align="left">yes</td>
-<td align="left"><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
-<td align="left"></td>
-<td align="left">Forces all matching files with <code>\.php$</code> to be processed by a handler.</td>
+<td>apache2_vhosts_handler_php</td>
+<td>yes</td>
+<td><a href="https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/defaults/main.yml">defaults/main.yml</a></td>
+<td></td>
+<td>Forces all matching files with <code>\.php$</code> to be processed by a handler.</td>
 </tr>
 </tbody>
 </table>
