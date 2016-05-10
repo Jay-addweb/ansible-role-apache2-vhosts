@@ -2,12 +2,13 @@
 # defaults file for hswong3i.apache2_vhosts
 
 # required variables
+apache2_vhosts_gid: ~
 apache2_vhosts_hash_salt: ~
 apache2_vhosts_id: ~
 apache2_vhosts_pass: ~
 apache2_vhosts_server_name: ~
+apache2_vhosts_uid: ~
 apache2_vhosts_user: ~
-
 
 # basic vhosts information
 apache2_vhosts_http_port: "80"
@@ -17,9 +18,7 @@ apache2_vhosts_server_alias: []
 
 # document root related
 apache2_vhosts_document_root: "{{ apache2_vhosts_home }}/public_html"
-apache2_vhosts_gid: ~
 apache2_vhosts_home: "/home/{{ apache2_vhosts_user }}"
-apache2_vhosts_uid: ~
 
 # log related
 apache2_vhosts_custom_log: "${APACHE_LOG_DIR}/{{ apache2_vhosts_server_name }}_access.log combined"
