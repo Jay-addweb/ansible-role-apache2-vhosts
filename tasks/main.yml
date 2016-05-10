@@ -5,6 +5,7 @@
   group:
     name: "{{ apache2_vhosts_user }}"
     gid: "{{ apache2_vhosts_gid | default(None) or omit }}"
+  when: apache2_vhosts_document_root is string
   notify: restart apache2
   tags: hswong3i.apache2_vhosts
 
