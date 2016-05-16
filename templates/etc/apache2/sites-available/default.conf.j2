@@ -21,7 +21,7 @@
     ServerAlias             {{ server_alias }}
 {% endfor %}
     ErrorLog                {{ apache2_vhosts_error_log }}
-    CustomLog               {{ apache2_vhosts_custom_log }}
+    CustomLog               {{ apache2_vhosts_custom_log }} combined
 {% if apache2_vhosts_document_root is string %}
     DocumentRoot            {{ apache2_vhosts_document_root }}
     SetEnvIfNoCase          ^Authorization$ "(.+)" HTTP_AUTHORIZATION=$1
