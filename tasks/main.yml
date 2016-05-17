@@ -35,17 +35,17 @@
   notify: restart apache2
   tags: hswong3i.apache2_vhosts
 
-- name: copy templates
-  file:
-    src: "{{ item.src }}"
+- name: ensure log files with correct owner and group
+  copy:
     dest: "{{ item.dest }}"
     owner: "{{ item.owner }}"
     group: "{{ item.group }}"
     mode: "{{ item.mode }}"
+    content: ""
     force: "no"
   with_items:
-    - { src: "var/log/apache2/vhosts/access.log.j2", dest: "{{ apache2_vhosts_custom_log }}", owner: "{{ apache2_vhosts_user }}", group: "www-data", mode: "0660" }
-    - { src: "var/log/apache2/vhosts/error.log.j2", dest: "{{ apache2_vhosts_error_log }}", owner: "{{ apache2_vhosts_user }}", group: "www-data", mode: "0660" }
+    - { dest: "{{ apache2_vhosts_custom_log }}", owner: "{{ apache2_vhosts_user }}", group: "www-data", mode: "0660" }
+    - { dest: "{{ apache2_vhosts_error_log }}", owner: "{{ apache2_vhosts_user }}", group: "www-data", mode: "0660" }
   when: apache2_vhosts_user is string
   notify: restart apache2
   tags: hswong3i.apache2_vhosts
