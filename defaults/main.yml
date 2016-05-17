@@ -21,8 +21,8 @@ apache2_vhosts_document_root: "{{ apache2_vhosts_home }}/public_html"
 apache2_vhosts_home: "/home/{{ apache2_vhosts_user }}"
 
 # log related
-apache2_vhosts_custom_log: "/var/log/apache2/{{ apache2_vhosts_server_name }}_access.log"
-apache2_vhosts_error_log: "/var/log/apache2/{{ apache2_vhosts_server_name }}_error.log"
+apache2_vhosts_custom_log: "/var/log/apache2/vhosts/{{ apache2_vhosts_server_name }}_access.log"
+apache2_vhosts_error_log: "/var/log/apache2/vhosts/{{ apache2_vhosts_server_name }}_error.log"
 
 # ssl related
 apache2_vhosts_ssl_engine: ~
