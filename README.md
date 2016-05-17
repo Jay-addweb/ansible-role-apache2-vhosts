@@ -4,7 +4,6 @@ Ansible Role for Apache2 VirtualHost
 [![Build Status](https://travis-ci.org/pantarei/ansible-role-apache2-vhosts.svg?branch=master)](https://travis-ci.org/pantarei/ansible-role-apache2-vhosts)
 [![GitHub tag](https://img.shields.io/github/tag/pantarei/ansible-role-apache2-vhosts.svg)](https://github.com/pantarei/ansible-role-apache2-vhosts)
 [![GitHub license](https://img.shields.io/github/license/pantarei/ansible-role-apache2-vhosts.svg)](https://github.com/pantarei/ansible-role-apache2-vhosts/blob/master/LICENSE)
-[![Ansible Role](https://img.shields.io/ansible/role/6294.svg)](https://galaxy.ansible.com/detail#/role/6294)
 
 Ansible Role for Apache2 VirtualHost Management.
 
