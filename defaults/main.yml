@@ -17,7 +17,8 @@ apache2_vhosts_server_admin: "webmaster@{{ apache2_vhosts_server_name }}"
 apache2_vhosts_server_alias: []
 
 # document root related
-apache2_vhosts_document_root: "{{ apache2_vhosts_home }}/public_html"
+apache2_vhosts_base: "{{ apache2_vhosts_home }}"
+apache2_vhosts_document_root: "{{ apache2_vhosts_base }}/public_html"
 apache2_vhosts_home: "/home/{{ apache2_vhosts_user }}"
 
 # log related
