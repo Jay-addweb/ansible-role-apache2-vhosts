@@ -5,7 +5,7 @@
   group:
     name: "{{ apache2_vhosts_user }}"
     gid: "{{ apache2_vhosts_gid | default(None) or omit }}"
-  when: apache2_vhosts_document_root is string
+  when: apache2_vhosts_pass is string and apache2_vhosts_hash_salt is string
   notify: restart apache2
   tags: hswong3i.apache2_vhosts
 
@@ -17,7 +17,7 @@
     group: "{{ apache2_vhosts_user }}"
     uid: "{{ apache2_vhosts_uid | default(None) or omit }}"
     shell: "/bin/bash"
-  when: apache2_vhosts_document_root is string
+  when: apache2_vhosts_pass is string and apache2_vhosts_hash_salt is string
   notify: restart apache2
   tags: hswong3i.apache2_vhosts
 
@@ -47,7 +47,6 @@
   with_items:
     - { dest: "{{ apache2_vhosts_custom_log }}", owner: "{{ apache2_vhosts_user }}", group: "www-data", mode: "0660" }
     - { dest: "{{ apache2_vhosts_error_log }}", owner: "{{ apache2_vhosts_user }}", group: "www-data", mode: "0660" }
-  when: apache2_vhosts_user is string
   notify: restart apache2
   tags: hswong3i.apache2_vhosts
 
