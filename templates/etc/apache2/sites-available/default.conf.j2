@@ -31,8 +31,14 @@
     </Directory>
 {% endif %}
 {% if apache2_vhosts_handler_php is string %}
-    <FilesMatch \.php$>
+    <FilesMatch ".+\.ph(p[3457]?|t|tml)$">
         SetHandler          {{ apache2_vhosts_handler_php }}
+    </FilesMatch>
+    <FilesMatch ".+\.phps$">
+        Require all denied
+    </FilesMatch>
+    <FilesMatch "^\.ph(p[3457]?|t|tml|ps)$">
+        Require all denied
     </FilesMatch>
 {% endif %}
 {% if apache2_vhosts_proxy_pass %}
