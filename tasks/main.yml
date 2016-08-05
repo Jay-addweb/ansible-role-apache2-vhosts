@@ -23,15 +23,15 @@
 
 - name: prepare file
   file:
-    path: "{{ item.path }}"
+    dest: "{{ item.dest }}"
     owner: "{{ item.owner }}"
     group: "{{ item.group }}"
     mode: "{{ item.mode }}"
     state: "{{ item.state }}"
   with_items:
-    - { path: "{{ apache2_vhosts_base }}", owner: "{{ apache2_vhosts_user }}", group: "{{ apache2_vhosts_user }}", mode: "0755", state: "directory" }
-    - { path: "{{ apache2_vhosts_base }}/logs", owner: "{{ apache2_vhosts_user }}", group: "{{ apache2_vhosts_user }}", mode: "0755", state: "directory" }
-    - { path: "{{ apache2_vhosts_document_root }}", owner: "{{ apache2_vhosts_user }}", group: "{{ apache2_vhosts_user }}", mode: "0755", state: "directory" }
+    - { dest: "{{ apache2_vhosts_base }}", owner: "{{ apache2_vhosts_user }}", group: "{{ apache2_vhosts_user }}", mode: "0755", state: "directory" }
+    - { dest: "{{ apache2_vhosts_base }}/logs", owner: "{{ apache2_vhosts_user }}", group: "{{ apache2_vhosts_user }}", mode: "0755", state: "directory" }
+    - { dest: "{{ apache2_vhosts_document_root }}", owner: "{{ apache2_vhosts_user }}", group: "{{ apache2_vhosts_user }}", mode: "0755", state: "directory" }
   when: apache2_vhosts_document_root is string
   notify: restart apache2
   tags: hswong3i.apache2_vhosts
@@ -66,21 +66,21 @@
 - name: symlink file
   file:
     src: "{{ item.src }}"
-    path: "{{ item.path }}"
+    dest: "{{ item.dest }}"
     owner: "{{ item.owner }}"
     group: "{{ item.group }}"
     state: "{{ item.state }}"
   with_items:
-  - { src: "{{ apache2_vhosts_custom_log }}", path: "{{ apache2_vhosts_base }}/logs/access.log",  owner: "{{ apache2_vhosts_user }}", group: "{{ apache2_vhosts_user }}", state: "link" }
-  - { src: "{{ apache2_vhosts_error_log }}", path: "{{ apache2_vhosts_base }}/logs/error.log",  owner: "{{ apache2_vhosts_user }}", group: "{{ apache2_vhosts_user }}", state: "link" }
+  - { src: "{{ apache2_vhosts_custom_log }}", dest: "{{ apache2_vhosts_base }}/logs/access.log",  owner: "{{ apache2_vhosts_user }}", group: "{{ apache2_vhosts_user }}", state: "link" }
+  - { src: "{{ apache2_vhosts_error_log }}", dest: "{{ apache2_vhosts_base }}/logs/error.log",  owner: "{{ apache2_vhosts_user }}", group: "{{ apache2_vhosts_user }}", state: "link" }
   when: apache2_vhosts_document_root is string
   notify: restart apache2
   tags: hswong3i.apache2_vhosts
 
 - name: a2ensite
   file:
-    path: "/etc/apache2/sites-enabled/{{ apache2_vhosts_server_name }}.conf"
     src: "../sites-available/{{ apache2_vhosts_server_name }}.conf"
-    state: link
+    dest: "/etc/apache2/sites-enabled/{{ apache2_vhosts_server_name }}.conf"
+    state: "link"
   notify: restart apache2
   tags: hswong3i.apache2_vhosts
