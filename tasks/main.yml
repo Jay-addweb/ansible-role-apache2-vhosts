@@ -33,6 +33,7 @@
     - { dest: "{{ apache2_vhosts_base }}/logs", owner: "{{ apache2_vhosts_user }}", group: "{{ apache2_vhosts_user }}", mode: "0755", state: "directory" }
     - { dest: "{{ apache2_vhosts_document_root }}", owner: "{{ apache2_vhosts_user }}", group: "{{ apache2_vhosts_user }}", mode: "0755", state: "directory" }
   when: apache2_vhosts_document_root is string
+  run_once: yes
   notify: restart apache2
   tags: hswong3i.apache2_vhosts
 
@@ -74,6 +75,7 @@
   - { src: "{{ apache2_vhosts_custom_log }}", dest: "{{ apache2_vhosts_base }}/logs/access.log",  owner: "{{ apache2_vhosts_user }}", group: "{{ apache2_vhosts_user }}", state: "link" }
   - { src: "{{ apache2_vhosts_error_log }}", dest: "{{ apache2_vhosts_base }}/logs/error.log",  owner: "{{ apache2_vhosts_user }}", group: "{{ apache2_vhosts_user }}", state: "link" }
   when: apache2_vhosts_document_root is string
+  run_once: yes
   notify: restart apache2
   tags: hswong3i.apache2_vhosts
 
