@@ -3,5 +3,7 @@
 
 - name: restart apache2
   service:
-    name: "apache2"
-    state: "restarted"
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items:
+    - { name: "apache2", state: "restarted" }
