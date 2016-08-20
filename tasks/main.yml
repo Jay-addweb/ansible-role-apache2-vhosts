@@ -85,6 +85,6 @@
     dest: "{{ item.dest }}"
     state: "{{ item.state }}"
   with_items:
-    - {{ src: "../sites-available/{{ apache2_vhosts_server_name }}.conf", dest: "/etc/apache2/sites-enabled/{{ apache2_vhosts_server_name }}.conf", state: "link" }
+    - { src: "../sites-available/{{ apache2_vhosts_server_name }}.conf", dest: "/etc/apache2/sites-enabled/{{ apache2_vhosts_server_name }}.conf", state: "link" }
   notify: restart apache2
   tags: hswong3i.apache2_vhosts
